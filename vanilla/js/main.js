@@ -1,3 +1,38 @@
-/**
- * Created by festo on 2014.08.17..
- */
+var ToDoApp = (function() {
+
+    var aTasks = [],
+        nTaskId = 0,
+        oTaskInput = document.getElementById("newTaskText"),
+        oTaskList = document.getElementById("taskList");
+
+    function init() {
+        addListeners();
+    }
+
+    function addListeners() {
+        oTaskInput.addEventListener('keypress', function(oEvent) {
+            var sKey = oEvent.which || oEvent.keyCode;
+            if(sKey === 13) { // 13 is enter
+                addTask();
+            }
+        })
+    }
+
+    function addTask() {
+        var sText = oTaskInput.value,
+            oTask;
+        if(sText === "") {
+            return;
+        }
+        oTask = new Task(sText, nTaskId++);
+        aTasks.push(oTask);
+        oTaskList.appendChild(oTask.getElement());
+        oTaskInput.value = "";
+    }
+
+    // init app
+    init();
+});
+
+// start app
+ToDoApp();

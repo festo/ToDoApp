@@ -3,5 +3,42 @@ html {
     p {
       font-weight: bold;
     }
+
+    #container {
+      h1 {
+        text-align: center;
+      }
+
+      #taskBox {
+        width: 400px;
+        margin: auto;
+
+        background-color: #ffff00; // for test
+
+        #addTask {
+          padding: 20px;
+          input {
+            width: 100%;          }
+        }
+
+        #taskList {
+          list-style-type: none;
+          padding-left: 0;
+          li {
+            div {
+              display: inline-block;
+            }
+
+            .text {
+              width: 350px;
+            }
+
+            .done {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 }

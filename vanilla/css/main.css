@@ -1,2 +1,21 @@
 html body p {
   font-weight: bold; }
+html body #container h1 {
+  text-align: center; }
+html body #container #taskBox {
+  width: 400px;
+  margin: auto;
+  background-color: #ffff00; }
+  html body #container #taskBox #addTask {
+    padding: 20px; }
+    html body #container #taskBox #addTask input {
+      width: 100%; }
+  html body #container #taskBox #taskList {
+    list-style-type: none;
+    padding-left: 0; }
+    html body #container #taskBox #taskList li div {
+      display: inline-block; }
+    html body #container #taskBox #taskList li .text {
+      width: 350px; }
+    html body #container #taskBox #taskList li .done {
+      cursor: pointer; }
