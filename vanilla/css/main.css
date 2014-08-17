@@ -17,5 +17,7 @@ html body #container #taskBox {
       display: inline-block; }
     html body #container #taskBox #taskList li .text {
       width: 350px; }
-    html body #container #taskBox #taskList li .done {
+      html body #container #taskBox #taskList li .text.done {
+        text-decoration: line-through; }
+    html body #container #taskBox #taskList li .remove {
       cursor: pointer; }

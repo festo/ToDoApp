@@ -1,7 +1,6 @@
 var ToDoApp = (function() {
 
-    var aTasks = [],
-        nTaskId = 0,
+    var nTaskId = 0,
         oTaskInput = document.getElementById("newTaskText"),
         oTaskList = document.getElementById("taskList");
 
@@ -25,7 +24,6 @@ var ToDoApp = (function() {
             return;
         }
         oTask = new Task(sText, nTaskId++);
-        aTasks.push(oTask);
         oTaskList.appendChild(oTask.getElement());
         oTaskInput.value = "";
     }

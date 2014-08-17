@@ -26,13 +26,28 @@ var Task = (function(sNewText, nId) {
         oElement.appendChild(oTextContainer);
         // remove button
         oRemoveBtn = document.createElement("div");
-        oRemoveBtn.className = "done";
+        oRemoveBtn.className = "remove";
         oRemoveBtn.innerText = "X";
         oElement.appendChild(oRemoveBtn);
     }
 
     function addListeners() {
+        oCheckBox.addEventListener("click", checkboxEvent);
+        oRemoveBtn.addEventListener("click", removeEvent);
+    }
 
+    function checkboxEvent() {
+        if(oCheckBox.checked) {
+            oTextContainer.classList.add("done");
+            bDone = true;
+        } else {
+            oTextContainer.classList.remove("done");
+            bDone = false;
+        }
+    }
+
+    function removeEvent() {
+        oElement.parentNode.removeChild(oElement);
     }
 
     init();

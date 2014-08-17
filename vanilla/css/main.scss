@@ -31,9 +31,13 @@ html {
 
             .text {
               width: 350px;
+
+              &.done {
+                text-decoration: line-through
+              }
             }
 
-            .done {
+            .remove {
               cursor: pointer;
             }
           }
