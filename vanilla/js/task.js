@@ -34,6 +34,10 @@ var Task = (function(sNewText, nId) {
     function addListeners() {
         oCheckBox.addEventListener("click", checkboxEvent);
         oRemoveBtn.addEventListener("click", removeEvent);
+        oElement.addEventListener("mouseenter", hoverInEvent);
+        oElement.addEventListener("mouseleave", hoverOutEvent);
+        oTextContainer.addEventListener("dblclick", editEvent);
+
     }
 
     function checkboxEvent() {
@@ -44,17 +48,49 @@ var Task = (function(sNewText, nId) {
             oTextContainer.classList.remove("done");
             bDone = false;
         }
+        change();
     }
 
     function removeEvent() {
         oElement.parentNode.removeChild(oElement);
     }
 
+    function hoverInEvent() {
+        oRemoveBtn.classList.add("hover");
+    }
+
+    function hoverOutEvent() {
+        oRemoveBtn.classList.remove("hover");
+    }
+
+    function editEvent() {
+        oTextContainer.setAttribute("contenteditable", true);
+        oTextContainer.focus();
+
+        editEndEvent();
+    }
+
+    function editEndEvent() {
+        oTextContainer.addEventListener('keypress', function(oEvent) {
+            var sKey = oEvent.which || oEvent.keyCode;
+            if(sKey === 13) { // 13 is enter
+                oTextContainer.setAttribute("contenteditable", false);
+                setText(oTextContainer.text);
+            }
+        })
+    }
+
+    function setText(sNewText) {
+        sText = sNewText;
+        change();
+    }
+
+    function change() {
+
+    }
+
     init();
     return {
-        isDone: function() {
-            return bDone;
-        },
         getElement: function() {
             return oElement;
         }

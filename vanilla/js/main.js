@@ -6,6 +6,7 @@ var ToDoApp = (function() {
 
     function init() {
         addListeners();
+        addFirstTask();
     }
 
     function addListeners() {
@@ -14,11 +15,11 @@ var ToDoApp = (function() {
             if(sKey === 13) { // 13 is enter
                 addTask();
             }
-        })
+        });
     }
 
-    function addTask() {
-        var sText = oTaskInput.value,
+    function addTask(sTextParam) {
+        var sText = sTextParam || oTaskInput.value,
             oTask;
         if(sText === "") {
             return;
@@ -26,6 +27,10 @@ var ToDoApp = (function() {
         oTask = new Task(sText, nTaskId++);
         oTaskList.appendChild(oTask.getElement());
         oTaskInput.value = "";
+    }
+
+    function addFirstTask() {
+        addTask("First task");
     }
 
     // init app

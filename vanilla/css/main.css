@@ -32,11 +32,28 @@ html body {
       padding-left: 25px;
       padding-right: 25px;
       padding-bottom: 15px; }
-      html body #container #taskBox #taskList li div {
-        display: inline-block; }
-      html body #container #taskBox #taskList li .text {
-        width: 350px; }
-        html body #container #taskBox #taskList li .text.done {
-          text-decoration: line-through; }
-      html body #container #taskBox #taskList li .remove {
-        cursor: pointer; }
+      html body #container #taskBox #taskList li {
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row; }
+        html body #container #taskBox #taskList li div {
+          display: inline-block; }
+        html body #container #taskBox #taskList li input {
+          margin-top: 5px;
+          margin-right: 15px; }
+          html body #container #taskBox #taskList li input:focus {
+            outline: none; }
+        html body #container #taskBox #taskList li .text {
+          width: 304px; }
+          html body #container #taskBox #taskList li .text.done {
+            text-decoration: line-through; }
+        html body #container #taskBox #taskList li .remove {
+          margin-top: 5px;
+          width: 12px;
+          color: #d80000;
+          cursor: pointer;
+          font-size: 10px;
+          text-align: right;
+          visibility: hidden; }
+          html body #container #taskBox #taskList li .remove.hover {
+            visibility: visible; }
