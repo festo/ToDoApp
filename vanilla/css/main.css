@@ -1,23 +1,42 @@
-html body p {
-  font-weight: bold; }
-html body #container h1 {
-  text-align: center; }
-html body #container #taskBox {
-  width: 400px;
-  margin: auto;
-  background-color: #ffff00; }
-  html body #container #taskBox #addTask {
-    padding: 20px; }
-    html body #container #taskBox #addTask input {
-      width: 100%; }
-  html body #container #taskBox #taskList {
-    list-style-type: none;
-    padding-left: 0; }
-    html body #container #taskBox #taskList li div {
-      display: inline-block; }
-    html body #container #taskBox #taskList li .text {
-      width: 350px; }
-      html body #container #taskBox #taskList li .text.done {
-        text-decoration: line-through; }
-    html body #container #taskBox #taskList li .remove {
-      cursor: pointer; }
+html body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #222222; }
+  html body #container #taskBox {
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #eeeeee; }
+    html body #container #taskBox #title {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-size: 30px;
+      line-height: 60px;
+      padding-left: 25px;
+      padding-right: 25px; }
+    html body #container #taskBox #addTask {
+      padding-left: 25px;
+      padding-right: 25px; }
+      html body #container #taskBox #addTask input {
+        width: 330px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 0; }
+        html body #container #taskBox #addTask input:focus {
+          outline: none; }
+    html body #container #taskBox #taskList {
+      list-style-type: none;
+      padding-left: 0;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 15px; }
+      html body #container #taskBox #taskList li div {
+        display: inline-block; }
+      html body #container #taskBox #taskList li .text {
+        width: 350px; }
+        html body #container #taskBox #taskList li .text.done {
+          text-decoration: line-through; }
+      html body #container #taskBox #taskList li .remove {
+        cursor: pointer; }

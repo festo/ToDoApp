@@ -1,29 +1,49 @@
+@mixin todo-margin {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 html {
   body {
-    p {
-      font-weight: bold;
-    }
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #222222;
 
     #container {
-      h1 {
-        text-align: center;
-      }
 
       #taskBox {
         width: 400px;
         margin: auto;
-
-        background-color: #ffff00; // for test
+        margin-top: 50px;
+        background-color: #eeeeee;
+        #title {
+          margin: 0;
+          padding: 0;
+          text-align: left;
+          font-size: 30px;
+          line-height: 60px;
+          @include todo-margin();
+        }
 
         #addTask {
-          padding: 20px;
+          @include todo-margin();
           input {
-            width: 100%;          }
+            width: 330px;
+            height: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 0;
+            &:focus {
+              outline: none;
+            }
+          }
         }
 
         #taskList {
           list-style-type: none;
           padding-left: 0;
+          @include todo-margin();
+          padding-bottom: 15px;
           li {
             div {
               display: inline-block;
