@@ -53,6 +53,7 @@ var Task = (function(sNewText, nId) {
 
     function removeEvent() {
         oElement.parentNode.removeChild(oElement);
+        change(true);
     }
 
     function hoverInEvent() {
@@ -74,10 +75,16 @@ var Task = (function(sNewText, nId) {
         oTextContainer.addEventListener('keypress', function(oEvent) {
             var sKey = oEvent.which || oEvent.keyCode;
             if(sKey === 13) { // 13 is enter
-                oTextContainer.setAttribute("contenteditable", false);
-                setText(oTextContainer.text);
+                editEnd();
             }
-        })
+        });
+
+        oTextContainer.addEventListener("blur", editEnd);
+    }
+
+    function editEnd() {
+        oTextContainer.setAttribute("contenteditable", false);
+        setText(oTextContainer.text);
     }
 
     function setText(sNewText) {
@@ -85,8 +92,8 @@ var Task = (function(sNewText, nId) {
         change();
     }
 
-    function change() {
-
+    function change(bDelete) {
+        console.log("Task changed");
     }
 
     init();
