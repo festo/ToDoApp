@@ -46,8 +46,8 @@ var oServer = (function(){
         updateTask: function(nId, bDone, sText) {
             request("PUT", getServerURL()+"/tasks/"+nId, null, "text="+sText+"&done="+bDone);
         },
-        getTask: function(nId) {
-            return request("GET", getServerURL()+"/tasks/"+nId, fCallback);
+        deleteTask: function(nId) {
+            return request("DELETE", getServerURL()+"/tasks/"+nId, null);
         }
     }
 })();
