@@ -10,6 +10,7 @@ var Task = (function(oTask) {
     function init() {
         createElements();
         addListeners();
+        setState();
     }
 
     function createElements() {
@@ -94,7 +95,18 @@ var Task = (function(oTask) {
     }
 
     function change(bDelete) {
-        console.log("Task changed");
+        if(bDelete !== true) {
+            oServer.updateTask(nId, bDone, sText);
+        } else {
+            oServer.deleteTask(nId);
+        }
+    }
+
+    function setState() {
+        if(bDone) {
+            oTextContainer.classList.add("done");
+            oCheckBox.setAttribute("checked", "checked");
+        }
     }
 
     init();

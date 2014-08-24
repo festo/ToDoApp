@@ -1,4 +1,6 @@
 ToDoApp
 =======
 
-ToDo app in pure JavaScipt
+ToDo apps in JavaScript.
+
+I created this project for try different frameworks and for fun.
