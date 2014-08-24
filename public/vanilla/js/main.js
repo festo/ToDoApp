@@ -6,7 +6,7 @@ var ToDoApp = (function() {
 
     function init() {
         addListeners();
-        addFirstTask();
+        getTasksFromServer();
     }
 
     function addListeners() {
@@ -19,6 +19,7 @@ var ToDoApp = (function() {
     }
 
     function addTask(sTextParam) {
+        // todo: update indexes
         var sText = sTextParam || oTaskInput.value,
             oTask;
         if(sText === "") {
@@ -29,8 +30,16 @@ var ToDoApp = (function() {
         oTaskInput.value = "";
     }
 
-    function addFirstTask() {
-        addTask("First task");
+    function getTasksFromServer() {
+        oServer.getTasks(function(oData, oError){
+            if(oError !== undefined) {
+                console.log(oError);
+                return;
+            }
+            oData.tasks.forEach(function(oTask){
+                addTask(oTask.text);
+            });
+        })
     }
 
     // init app
