@@ -1,7 +1,8 @@
-var Task = (function(sNewText, nId) {
-    var bDone = false,
+var Task = (function(oTask) {
+    var bDone = oTask.done,
+        sText = oTask.text,
+        nId = oTask.id,
         oRemoveBtn,
-        sText = sNewText,
         oTextContainer,
         oCheckBox,
         oElement;

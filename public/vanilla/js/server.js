@@ -25,6 +25,7 @@ var oServer = (function(){
         if(oData == undefined) {
             oXMLHttp.send();
         } else {
+            oXMLHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             oXMLHttp.send(oData);
         }
     }
@@ -36,6 +37,9 @@ var oServer = (function(){
     return {
         getTasks: function(fCallback) {
             return request("GET", getServerURL()+"/tasks", fCallback);
+        },
+        addTask: function(sText, fCallback) {
+            return request("POST", getServerURL()+"/tasks", fCallback, "text="+sText);
         },
         getTask: function(nId) {
             return request("GET", getServerURL()+"/tasks/"+nId, fCallback);

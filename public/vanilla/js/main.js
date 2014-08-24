@@ -1,7 +1,6 @@
 var ToDoApp = (function() {
 
-    var nTaskId = 0,
-        oTaskInput = document.getElementById("newTaskText"),
+    var oTaskInput = document.getElementById("newTaskText"),
         oTaskList = document.getElementById("taskList");
 
     function init() {
@@ -18,14 +17,17 @@ var ToDoApp = (function() {
         });
     }
 
-    function addTask(sTextParam) {
-        // todo: update indexes
-        var sText = sTextParam || oTaskInput.value,
-            oTask;
+    function addTask() {
+        var sText = oTaskInput.value;
         if(sText === "") {
             return;
         }
-        oTask = new Task(sText, nTaskId++);
+        oServer.addTask(sText, function(oTask){
+            insertTask(new Task(oTask));
+        });
+    }
+
+    function insertTask(oTask) {
         oTaskList.appendChild(oTask.getElement());
         oTaskInput.value = "";
     }
@@ -37,7 +39,7 @@ var ToDoApp = (function() {
                 return;
             }
             oData.tasks.forEach(function(oTask){
-                addTask(oTask.text);
+                insertTask(new Task(oTask));
             });
         })
     }
